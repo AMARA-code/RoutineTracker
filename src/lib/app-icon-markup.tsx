@@ -2,11 +2,15 @@ import type { CSSProperties, ReactNode } from "react";
 
 type AppIconMarkupProps = {
   size: number;
+  maskable?: boolean;
 };
 
-export function AppIconMarkup({ size }: AppIconMarkupProps) {
-  const radius = Math.round(size * 0.22);
-  const cardSize = Math.round(size * 0.62);
+export function AppIconMarkup({ size, maskable = false }: AppIconMarkupProps) {
+  // Maskable icons must be full-bleed (no self-rounded corners) and keep
+  // content inside the ~80% safe-zone circle. Regular icons can round
+  // their own corners since no OS mask is applied.
+  const radius = maskable ? 0 : Math.round(size * 0.22);
+  const cardSize = Math.round(size * (maskable ? 0.46 : 0.62));
   const cardRadius = Math.round(size * 0.11);
 
   const dot = (color: string, top: number, left: number, scale = 1): ReactNode => (
@@ -50,10 +54,11 @@ export function AppIconMarkup({ size }: AppIconMarkupProps) {
 
   return (
     <div style={container}>
-      {dot("#f5b041", 0.11, 0.14, 0.9)}
-      {dot("#aed6f1", 0.16, 0.78, 1.1)}
-      {dot("#8da37c", 0.78, 0.12, 0.85)}
-      {dot("#fdebd0", 0.72, 0.8, 0.75)}
+      {/* Decorative dots pulled slightly inward for maskable so they don't get clipped */}
+      {dot("#f5b041", maskable ? 0.16 : 0.11, maskable ? 0.19 : 0.14, 0.9)}
+      {dot("#aed6f1", maskable ? 0.2 : 0.16, maskable ? 0.73 : 0.78, 1.1)}
+      {dot("#8da37c", maskable ? 0.72 : 0.78, maskable ? 0.17 : 0.12, 0.85)}
+      {dot("#fdebd0", maskable ? 0.67 : 0.72, maskable ? 0.75 : 0.8, 0.75)}
 
       <div
         style={{
