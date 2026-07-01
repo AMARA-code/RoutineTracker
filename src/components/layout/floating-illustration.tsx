@@ -30,7 +30,7 @@ export function FloatingIllustration({
         width={520}
         height={420}
         className={cn(
-          "h-44 w-auto max-w-[85vw] object-contain sm:h-60 md:h-72 lg:h-80",
+          "h-44 w-auto max-w-[240px] object-contain sm:h-60 sm:max-w-[300px] md:h-72 md:max-w-[340px] lg:h-80 lg:max-w-[380px]",
           imageClassName,
         )}
         priority={priority}
