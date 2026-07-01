@@ -104,7 +104,7 @@ export function DashboardPageClient({ data }: { data: DashboardData }) {
         </p>
       </MotionSection>
 
-      <MotionSection delay={0.1} className="mb-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <MotionSection delay={0.1} className="mb-8 grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-4">
         <SnapshotCard
           label="Journal today"
           value={String(data.tradeCount)}

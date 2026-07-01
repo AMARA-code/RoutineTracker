@@ -44,7 +44,7 @@ export function HabitStatCard({
     <div
       className={cn(
         variantStyles[variant],
-        "relative flex flex-col overflow-hidden p-5",
+        "relative flex flex-col overflow-hidden p-4 sm:p-5",
         className,
       )}
     >
