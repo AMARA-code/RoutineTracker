@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f9fbfc;
+  --foreground: #3e4c59;
+  --card: #ffffff;
+  --card-foreground: #3e4c59;
+  --primary: #b8e2f2;
+  --primary-foreground: #2a4a5a;
+  --secondary: #d9d3f0;
+  --secondary-foreground: #3e4c59;
+  --mint: #c8ead9;
+  --lavender: #d9d3f0;
+  --coral: #f5c6c6;
+  --sage: #c9e4ca;
+  --muted: #eef2f5;
+  --muted-foreground: #6b7c8a;
+  --border: #e2e8ee;
+  --ring: #b8e2f2;
+  --shadow: 0 4px 24px -4px rgba(62, 76, 89, 0.08);
+  --shadow-lg: 0 12px 40px -8px rgba(62, 76, 89, 0.12);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-mint: var(--mint);
+  --color-lavender: var(--lavender);
+  --color-coral: var(--coral);
+  --color-sage: var(--sage);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--border);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, #b8e2f2 0%, #d9d3f0 50%, #c8ead9 100%);
+}
+
+.gradient-journal {
+  background: linear-gradient(135deg, #b8e2f2 0%, #d4edf7 100%);
+}
+
+.gradient-routine {
+  background: linear-gradient(135deg, #c8ead9 0%, #e0f4ea 100%);
+}
+
+.gradient-alerts {
+  background: linear-gradient(135deg, #d9d3f0 0%, #ebe8f7 100%);
+}
+
+.card-shadow {
+  box-shadow: var(--shadow);
+}
+
+.card-shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+/* ─── Premium Home Page ─────────────────────────────────────────────────── */
+
+.home-page {
+  background: linear-gradient(
+    165deg,
+    #f9fbfc 0%,
+    #f0f7fa 25%,
+    #f5f3fa 55%,
+    #f2faf5 100%
+  );
+}
+
+.home-glass-panel {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(62, 76, 89, 0.08),
+    0 2px 8px rgba(62, 76, 89, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.home-orb {
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
