@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { CSSProperties } from "react";
 
 type AppIconMarkupProps = {
   size: number;
@@ -6,39 +6,13 @@ type AppIconMarkupProps = {
 };
 
 export function AppIconMarkup({ size, maskable = false }: AppIconMarkupProps) {
-  // Maskable icons must be full-bleed (no self-rounded corners) and keep
-  // content inside the ~80% safe-zone circle. Regular icons can round
-  // their own corners since no OS mask is applied.
+  // Non-maskable icons can round their own corners (browser tabs, apple-icon).
+  // Maskable icons must stay full-bleed — Android applies its own mask shape.
   const radius = maskable ? 0 : Math.round(size * 0.22);
-  const cardSize = Math.round(size * (maskable ? 0.46 : 0.62));
-  const cardRadius = Math.round(size * 0.11);
 
-  const dot = (color: string, top: number, left: number, scale = 1): ReactNode => (
-    <div
-      style={{
-        position: "absolute",
-        top: Math.round(top * size),
-        left: Math.round(left * size),
-        width: Math.round(size * 0.08 * scale),
-        height: Math.round(size * 0.08 * scale),
-        borderRadius: "50%",
-        background: color,
-        opacity: 0.9,
-      }}
-    />
-  );
-
-  const bar = (width: number, color: string, top: number): ReactNode => (
-    <div
-      style={{
-        width: Math.round(cardSize * width),
-        height: Math.max(4, Math.round(size * 0.028)),
-        borderRadius: 999,
-        background: color,
-        marginTop: Math.round(size * 0.018),
-      }}
-    />
-  );
+  // Keep the letter inside the ~80% safe zone when maskable so it never
+  // gets clipped by Android's circle/squircle mask.
+  const letterSize = Math.round(size * (maskable ? 0.42 : 0.52));
 
   const container: CSSProperties = {
     width: "100%",
@@ -46,92 +20,22 @@ export function AppIconMarkup({ size, maskable = false }: AppIconMarkupProps) {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: "linear-gradient(145deg, #e08a8a 0%, #d47070 42%, #c4b7d4 100%)",
+    background: "#e08a8a",
     borderRadius: radius,
-    position: "relative",
-    overflow: "hidden",
+  };
+
+  const letter: CSSProperties = {
+    fontSize: letterSize,
+    fontWeight: 700,
+    color: "#ffffff",
+    fontFamily: "Georgia, serif",
+    lineHeight: 1,
+    transform: "translateY(2%)",
   };
 
   return (
     <div style={container}>
-      {/* Decorative dots pulled slightly inward for maskable so they don't get clipped */}
-      {dot("#f5b041", maskable ? 0.16 : 0.11, maskable ? 0.19 : 0.14, 0.9)}
-      {dot("#aed6f1", maskable ? 0.2 : 0.16, maskable ? 0.73 : 0.78, 1.1)}
-      {dot("#8da37c", maskable ? 0.72 : 0.78, maskable ? 0.17 : 0.12, 0.85)}
-      {dot("#fdebd0", maskable ? 0.67 : 0.72, maskable ? 0.75 : 0.8, 0.75)}
-
-      <div
-        style={{
-          width: cardSize,
-          height: cardSize,
-          background: "rgba(255,255,255,0.96)",
-          borderRadius: cardRadius,
-          border: `${Math.max(2, Math.round(size * 0.012))}px solid rgba(255,255,255,0.85)`,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          boxShadow: `0 ${Math.round(size * 0.03)}px ${Math.round(size * 0.08)}px rgba(45,52,54,0.18)`,
-        }}
-      >
-        <div
-          style={{
-            width: Math.round(cardSize * 0.55),
-            height: Math.round(cardSize * 0.55),
-            borderRadius: Math.round(size * 0.08),
-            border: `${Math.max(2, Math.round(size * 0.01))}px solid #f0e0d6`,
-            background: "linear-gradient(180deg, #fff9f0 0%, #ffffff 100%)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            justifyContent: "center",
-            paddingLeft: Math.round(cardSize * 0.14),
-            paddingRight: Math.round(cardSize * 0.14),
-          }}
-        >
-          {bar(0.92, "#e08a8a", 0)}
-          {bar(0.72, "#c4b7d4", 1)}
-          {bar(0.8, "#aed6f1", 2)}
-          {bar(0.6, "#8da37c", 3)}
-        </div>
-
-        <div
-          style={{
-            marginTop: Math.round(size * 0.035),
-            width: Math.round(size * 0.11),
-            height: Math.round(size * 0.11),
-            borderRadius: "50%",
-            background: "linear-gradient(135deg, #e08a8a, #f5b041)",
-            position: "relative",
-            display: "flex",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              left: "30%",
-              top: "52%",
-              width: "22%",
-              height: "10%",
-              background: "white",
-              borderRadius: 999,
-              transform: "rotate(45deg)",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              left: "42%",
-              top: "44%",
-              width: "38%",
-              height: "10%",
-              background: "white",
-              borderRadius: 999,
-              transform: "rotate(-45deg)",
-            }}
-          />
-        </div>
-      </div>
+      <div style={letter}>R</div>
     </div>
   );
 }
