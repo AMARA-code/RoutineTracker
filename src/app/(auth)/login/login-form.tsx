@@ -4,7 +4,7 @@ import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";
 import { login } from "../actions";
 import { AuthBrand, AuthFooterLink } from "@/components/auth/auth-brand";
-import { Button, Card, Input } from "@/components/ui";
+import { Button, Input } from "@/components/ui";
 
 export function LoginForm() {
   const searchParams = useSearchParams();
@@ -16,7 +16,7 @@ export function LoginForm() {
     (urlError === "auth" ? "Authentication failed. Please try again." : null);
 
   return (
-    <Card className="w-full max-w-md card-shadow-lg" padding="lg">
+    <>
       <AuthBrand
         title="Sign in"
         subtitle="Track routines, habits, and goals — all in one place."
@@ -56,6 +56,6 @@ export function LoginForm() {
         linkText="Create account"
         href="/register"
       />
-    </Card>
+    </>
   );
 }

@@ -1,15 +1,12 @@
 import { Suspense } from "react";
 import { AuthPageShell } from "@/components/auth/auth-brand";
+import { PageLoader } from "@/components/ui/loader";
 import { LoginForm } from "./login-form";
 
 export default function LoginPage() {
   return (
-    <AuthPageShell>
-      <Suspense
-        fallback={
-          <div className="h-96 w-full max-w-md animate-pulse rounded-2xl bg-muted" />
-        }
-      >
+    <AuthPageShell variant="login">
+      <Suspense fallback={<PageLoader message="Loading sign in…" />}>
         <LoginForm />
       </Suspense>
     </AuthPageShell>

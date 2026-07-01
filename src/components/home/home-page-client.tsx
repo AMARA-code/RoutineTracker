@@ -5,6 +5,7 @@ import type { HomeData } from "@/app/home/actions";
 import { FloatingBackground } from "./floating-background";
 import { HabitOrbs, EnterDashboardCTA } from "./habit-orbs";
 import { HomeHero } from "./home-hero";
+import { HomeIllustrations } from "./home-illustrations";
 import { PrayerConstellation } from "./prayer-constellation";
 import { WaterGlasses3D } from "./water-glasses-3d";
 
@@ -40,6 +41,8 @@ export function HomePageClient({ data }: { data: HomeData }) {
             worked={data.worked}
             workHours={data.workHours}
           />
+
+          <HomeIllustrations />
 
           <EnterDashboardCTA />
         </motion.div>

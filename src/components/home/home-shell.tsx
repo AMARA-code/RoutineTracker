@@ -9,15 +9,15 @@ import { Button } from "@/components/ui";
 export function HomeShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
-      <header className="sticky top-0 z-50 border-b border-white/40 bg-white/70 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-primary/15 bg-white/80 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-8">
           <motion.div
             className="flex items-center gap-2"
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
           >
-            <Sparkles className="h-5 w-5 text-primary-foreground" />
-            <span className="text-lg font-semibold tracking-tight">
+            <Sparkles className="h-5 w-5 text-primary" />
+            <span className="font-serif text-lg font-semibold tracking-tight">
               RoutineTracker
             </span>
           </motion.div>

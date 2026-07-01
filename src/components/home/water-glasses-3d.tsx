@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Droplets, Sparkles } from "lucide-react";
 import { setWaterGlasses } from "@/app/(app)/routine/actions";
 import { WATER_GOAL } from "@/types/routine";
+import { Loader } from "@/components/ui/loader";
 
 function Glass({
   index,
@@ -55,7 +56,7 @@ function Glass({
               className="h-full w-full"
               style={{
                 background:
-                  "linear-gradient(0deg, #4a9ec4 0%, #7ec8e3 45%, #a8dff0 100%)",
+                  "linear-gradient(0deg, #6ba8c8 0%, #aed6f1 45%, #c8e4f5 100%)",
               }}
             />
             {filled && (
@@ -74,7 +75,7 @@ function Glass({
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
             >
-              <Sparkles className="h-3.5 w-3.5 text-[#5a9eb5]" />
+              <Sparkles className="h-3.5 w-3.5 text-sky" />
             </motion.div>
           )}
         </AnimatePresence>
@@ -95,7 +96,7 @@ export function WaterGlasses3D({
   initialCount: number;
 }) {
   const [count, setCount] = useState(initialCount);
-  const [, startTransition] = useTransition();
+  const [pending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -123,17 +124,22 @@ export function WaterGlasses3D({
   return (
     <motion.div
       className="home-glass-panel relative overflow-hidden rounded-3xl p-6 sm:p-8"
-      initial={{ opacity: 0, y: 32 }}
+      initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 120, damping: 20, delay: 0.1 }}
     >
+      {pending && (
+        <div className="absolute inset-0 z-20 flex items-center justify-center rounded-3xl bg-white/50 backdrop-blur-[2px]">
+          <Loader size="md" />
+        </div>
+      )}
       <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/20 blur-2xl" />
 
       <div className="relative mb-6 flex items-start justify-between gap-4">
         <div>
           <div className="mb-1 flex items-center gap-2">
-            <Droplets className="h-5 w-5 text-[#5a9eb5]" />
-            <h2 className="text-lg font-semibold">Hydration</h2>
+            <Droplets className="h-5 w-5 text-sky" />
+            <h2 className="font-serif text-lg font-semibold">Hydration</h2>
           </div>
           <p className="text-sm text-muted-foreground">
             Tap a glass to fill up to that level
@@ -141,7 +147,7 @@ export function WaterGlasses3D({
         </div>
         <motion.div
           key={count}
-          className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-2xl bg-primary/50 text-primary-foreground"
+          className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-2xl bg-primary text-primary-foreground"
           initial={{ scale: 0.85 }}
           animate={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 400 }}
@@ -155,7 +161,7 @@ export function WaterGlasses3D({
         <motion.div
           className="absolute inset-y-0 left-0 rounded-full"
           style={{
-            background: "linear-gradient(90deg, #7ec8e3, #b8e2f2, #c8ead9)",
+            background: "linear-gradient(90deg, #aed6f1, #e08a8a, #8da37c)",
           }}
           animate={{ width: `${progress}%` }}
           transition={{ type: "spring", stiffness: 200, damping: 25 }}

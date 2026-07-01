@@ -1,5 +1,6 @@
 export { Button } from "./button";
 export { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./card";
+export { Loader, LoaderRing, PageLoader, FullPageLoader } from "./loader";
 export { Input } from "./input";
 export { Textarea } from "./textarea";
 export { Checkbox } from "./checkbox";

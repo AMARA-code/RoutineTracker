@@ -9,11 +9,11 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const variantStyles: Record<CardVariant, string> = {
-  default: "bg-card",
-  journal: "bg-card border-l-4 border-l-primary",
-  routine: "bg-card border-l-4 border-l-mint",
-  alerts: "bg-card border-l-4 border-l-lavender",
-  hero: "gradient-hero text-primary-foreground",
+  default: "bg-card border-2 border-border/60",
+  journal: "bg-card border-2 border-primary/30 border-l-4 border-l-primary",
+  routine: "bg-card border-2 border-sage/30 border-l-4 border-l-sage",
+  alerts: "bg-card border-2 border-lavender/30 border-l-4 border-l-lavender",
+  hero: "gradient-hero text-primary-foreground border-0",
 };
 
 const paddingStyles = {
@@ -31,7 +31,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     <div
       ref={ref}
       className={cn(
-        "rounded-2xl border border-border card-shadow",
+        "rounded-2xl card-shadow",
         variantStyles[variant],
         paddingStyles[padding],
         className,
@@ -58,7 +58,7 @@ export function CardTitle({
 }: HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h3
-      className={cn("text-lg font-semibold tracking-tight", className)}
+      className={cn("font-serif text-lg font-semibold tracking-tight", className)}
       {...props}
     />
   );

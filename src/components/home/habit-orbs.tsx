@@ -15,6 +15,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { saveExercise } from "@/app/(app)/routine/actions";
+import { Loader } from "@/components/ui/loader";
 
 function HabitOrb({
   label,
@@ -49,22 +50,27 @@ function HabitOrb({
         background: `linear-gradient(145deg, ${color}33, rgba(255,255,255,0.5))`,
         boxShadow: active
           ? `0 12px 40px ${color}55, inset 0 1px 0 rgba(255,255,255,0.9)`
-          : "0 6px 24px rgba(62,76,89,0.08), inset 0 1px 0 rgba(255,255,255,0.7)",
+          : "0 6px 24px rgba(45,52,54,0.08), inset 0 1px 0 rgba(255,255,255,0.7)",
         transformStyle: "preserve-3d",
       }}
-      initial={{ opacity: 0, scale: 0.7, rotateY: -20 }}
-      animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
       transition={{ type: "spring", stiffness: 200, damping: 18, delay }}
-      whileHover={onClick ? { scale: 1.05, rotateY: 8, z: 20 } : { scale: 1.03 }}
-      whileTap={onClick ? { scale: 0.95 } : undefined}
+      whileHover={onClick ? { scale: 1.04 } : { scale: 1.02 }}
+      whileTap={onClick ? { scale: 0.96 } : undefined}
     >
+      {pending && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center rounded-3xl bg-white/50">
+          <Loader size="sm" />
+        </div>
+      )}
       <motion.div
         className="flex h-12 w-12 items-center justify-center rounded-2xl"
         style={{ background: `${color}66` }}
         animate={active ? { rotate: [0, 5, -5, 0] } : {}}
         transition={{ duration: 2, repeat: active ? Infinity : 0, repeatDelay: 3 }}
       >
-        <Icon className="h-6 w-6" style={{ color: "#3e4c59" }} />
+        <Icon className="h-6 w-6" style={{ color: "#2d3436" }} />
       </motion.div>
       <div>
         <p className="text-xs font-medium text-muted-foreground">{label}</p>
@@ -73,7 +79,7 @@ function HabitOrb({
       </div>
       {active && (
         <motion.div
-          className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-sage"
+          className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-primary"
           animate={{ scale: [1, 1.3, 1] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         />
@@ -130,7 +136,7 @@ export function HabitOrbs({
         icon={Dumbbell}
         active={localExercised}
         onClick={toggleExercise}
-        color="#c8ead9"
+        color="#8da37c"
         delay={0.35}
         pending={pending}
       />
@@ -140,7 +146,7 @@ export function HabitOrbs({
         sub={`${quranStreak}d streak`}
         icon={ScrollText}
         active={quranDone}
-        color="#d9d3f0"
+        color="#c4b7d4"
         delay={0.42}
       />
       <HabitOrb
@@ -149,7 +155,7 @@ export function HabitOrbs({
         sub={tradeCount === 1 ? "trade today" : "trades today"}
         icon={BookOpen}
         active={tradeCount > 0}
-        color="#b8e2f2"
+        color="#aed6f1"
         delay={0.49}
       />
       <HabitOrb
@@ -158,7 +164,7 @@ export function HabitOrbs({
         sub={worked ? "logged" : "not yet"}
         icon={TrendingUp}
         active={worked}
-        color="#c9e4ca"
+        color="#f5b041"
         delay={0.56}
       />
     </div>
@@ -182,9 +188,8 @@ export function EnterDashboardCTA() {
         <motion.div
           className="relative flex items-center gap-3 rounded-2xl px-8 py-4 font-semibold text-primary-foreground"
           style={{
-            background: "linear-gradient(135deg, #7ec8e3 0%, #b8e2f2 40%, #d9d3f0 100%)",
-            boxShadow: "0 12px 40px rgba(126,200,227,0.45)",
-            transformStyle: "preserve-3d",
+            background: "linear-gradient(135deg, #e08a8a 0%, #d47070 40%, #c4b7d4 100%)",
+            boxShadow: "0 12px 40px rgba(224,138,138,0.35)",
           }}
           whileHover={{ scale: 1.04, rotateX: 4, y: -2 }}
           whileTap={{ scale: 0.97 }}

@@ -3,13 +3,13 @@
 import { useActionState } from "react";
 import { signup } from "../actions";
 import { AuthBrand, AuthFooterLink } from "@/components/auth/auth-brand";
-import { Button, Card, Input } from "@/components/ui";
+import { Button, Input } from "@/components/ui";
 
 export function RegisterForm() {
   const [state, formAction, pending] = useActionState(signup, null);
 
   return (
-    <Card className="w-full max-w-md card-shadow-lg" padding="lg">
+    <>
       <AuthBrand
         title="Create account"
         subtitle="Join RoutineTracker and build better daily habits."
@@ -77,6 +77,6 @@ export function RegisterForm() {
         linkText="Sign in"
         href="/login"
       />
-    </Card>
+    </>
   );
 }

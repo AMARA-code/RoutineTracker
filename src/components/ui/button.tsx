@@ -1,5 +1,6 @@
 import { forwardRef, type ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
+import { LoaderRing } from "./loader";
 
 type ButtonVariant = "primary" | "secondary" | "ghost" | "danger" | "outline";
 type ButtonSize = "sm" | "md" | "lg";
@@ -12,19 +13,19 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-primary text-primary-foreground hover:bg-[#a5d8eb] shadow-sm",
+    "bg-primary text-primary-foreground hover:bg-[#d47070] shadow-sm",
   secondary:
-    "bg-secondary text-secondary-foreground hover:bg-[#ccc5e8] shadow-sm",
+    "bg-secondary text-secondary-foreground hover:bg-[#b5a8c8] shadow-sm",
   ghost: "bg-transparent hover:bg-muted text-foreground",
-  danger: "bg-coral text-[#5a3a3a] hover:bg-[#efb8b8] shadow-sm",
+  danger: "bg-coral text-primary-foreground hover:bg-[#d47070] shadow-sm",
   outline:
-    "border border-border bg-card hover:bg-muted text-foreground shadow-sm",
+    "border-2 border-primary/40 bg-card hover:bg-muted text-foreground shadow-sm",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "h-8 px-3 text-sm rounded-lg",
+  sm: "h-8 px-3 text-sm rounded-xl",
   md: "h-10 px-4 text-sm rounded-xl",
-  lg: "h-12 px-6 text-base rounded-xl",
+  lg: "h-12 px-6 text-base rounded-2xl",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -53,9 +54,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       )}
       {...props}
     >
-      {loading && (
-        <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-      )}
+      {loading && <LoaderRing size="sm" />}
       {children}
     </button>
   ),

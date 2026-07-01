@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 import { useUIStore } from "@/stores/ui-store";
 
 const accentColors = {
-  ice: "bg-primary/30 text-primary-foreground",
-  mint: "bg-mint/50 text-[#3d5a4a]",
-  lavender: "bg-lavender/50 text-[#4a4560]",
+  ice: "bg-primary/20 text-primary",
+  mint: "bg-sage/30 text-[#4a6a3d]",
+  lavender: "bg-lavender/40 text-[#5a4f6e]",
 };
 
 export function Sidebar() {
@@ -37,7 +37,7 @@ export function Sidebar() {
             <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
               Your daily hub
             </p>
-            <h1 className="text-lg font-semibold text-foreground">
+            <h1 className="font-serif text-lg font-semibold text-foreground">
               RoutineTracker
             </h1>
           </div>
@@ -68,7 +68,7 @@ export function Sidebar() {
                 className={cn(
                   "flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all duration-200",
                   isActive
-                    ? "bg-primary/40 text-primary-foreground shadow-sm"
+                    ? "bg-primary/15 text-primary shadow-sm"
                     : "text-muted-foreground hover:bg-muted hover:text-foreground",
                 )}
               >
@@ -76,7 +76,7 @@ export function Sidebar() {
                   className={cn(
                     "flex h-8 w-8 items-center justify-center rounded-lg",
                     isActive
-                      ? "bg-primary"
+                      ? "bg-primary text-primary-foreground"
                       : accentColors[item.accent || "ice"],
                   )}
                 >
