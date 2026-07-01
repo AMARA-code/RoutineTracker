@@ -43,12 +43,14 @@ function SnapshotCard({
   sub,
   icon: Icon,
   index,
+  illustrationSrc,
 }: {
   label: string;
   value: string;
   sub?: string;
   icon: LucideIcon;
   index: number;
+  illustrationSrc?: string;
 }) {
   return (
     <HabitStatCard
@@ -57,6 +59,7 @@ function SnapshotCard({
       sub={sub}
       icon={Icon}
       variant={pickHabitVariant(index)}
+      illustrationSrc={illustrationSrc}
     />
   );
 }
@@ -120,6 +123,7 @@ export function DashboardPageClient({ data }: { data: DashboardData }) {
           value={sleepStr}
           icon={Moon}
           index={2}
+          illustrationSrc="/illustrations/sleep-moon.svg"
         />
         <SnapshotCard
           label="Streaks"
@@ -127,6 +131,7 @@ export function DashboardPageClient({ data }: { data: DashboardData }) {
           sub={`Exercise · Quran ${data.quranStreak}d`}
           icon={Dumbbell}
           index={3}
+          illustrationSrc="/illustrations/streak-flame.svg"
         />
       </MotionSection>
 

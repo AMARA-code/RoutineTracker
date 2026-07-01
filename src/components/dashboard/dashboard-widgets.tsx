@@ -81,6 +81,7 @@ export function DashboardQuickLog({
           <Button
             variant="outline"
             size="sm"
+            className="rounded-full"
             disabled={pending}
             onClick={() =>
               startTransition(() => {
@@ -88,12 +89,13 @@ export function DashboardQuickLog({
               })
             }
           >
-            <Droplets className="h-4 w-4" />
+            <Droplets className="h-4 w-4 text-[#4a90b8]" />
             Water +1 ({waterGlasses}/{WATER_GOAL})
           </Button>
           <Button
             variant={exercised ? "secondary" : "outline"}
             size="sm"
+            className="rounded-full"
             disabled={pending}
             onClick={() => {
               const fd = new FormData();
@@ -116,6 +118,7 @@ export function DashboardQuickLog({
                 key={key}
                 variant={prayer?.[key] ? "secondary" : "outline"}
                 size="sm"
+                className="rounded-full"
                 disabled={pending}
                 onClick={() => togglePrayer(key)}
               >
@@ -133,6 +136,7 @@ export function DashboardQuickLog({
                 key={key}
                 variant={meal?.[key] ? "secondary" : "outline"}
                 size="sm"
+                className="rounded-full"
                 disabled={pending}
                 onClick={() => toggleMeal(key)}
               >
@@ -150,6 +154,7 @@ export function DashboardQuickLog({
                 key={key}
                 variant={hygiene?.[key] ? "secondary" : "outline"}
                 size="sm"
+                className="rounded-full"
                 disabled={pending}
                 onClick={() => toggleHygiene(key)}
               >

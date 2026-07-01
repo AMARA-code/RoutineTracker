@@ -1,0 +1,41 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#aed6f1"/>
+      <stop offset="100%" stop-color="#7eb8d8"/>
+    </linearGradient>
+    <linearGradient id="moonGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff9f0"/>
+      <stop offset="100%" stop-color="#fdebd0"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0e0d6"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="200" cy="200" r="180" fill="url(#skyGrad)"/>
+
+  <circle cx="120" cy="90" r="4" fill="#ffffff" opacity="0.9"/>
+  <circle cx="300" cy="70" r="3" fill="#ffffff" opacity="0.8"/>
+  <circle cx="330" cy="140" r="5" fill="#ffffff" opacity="0.9"/>
+  <circle cx="80" cy="150" r="3" fill="#ffffff" opacity="0.7"/>
+  <path d="M270 100 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 z" fill="#ffffff" opacity="0.9"/>
+
+  <path d="M255 130 c0 44 -36 80 -80 80 c-14 0 -27 -3.5 -38.5 -9.8 C 150 235 178 250 210 250 c 44 0 80 -36 80 -80 c 0 -25 -11.5 -47.5 -29.8 -62.2 C 253 116 255 123 255 130 Z" fill="url(#moonGrad)"/>
+
+  <ellipse cx="150" cy="300" rx="70" ry="22" fill="url(#cloudGrad)"/>
+  <ellipse cx="105" cy="292" rx="34" ry="20" fill="url(#cloudGrad)"/>
+  <ellipse cx="195" cy="290" rx="30" ry="18" fill="url(#cloudGrad)"/>
+
+  <g>
+    <ellipse cx="215" cy="255" rx="48" ry="30" fill="#e08a8a" opacity="0.9"/>
+    <circle cx="252" cy="240" r="16" fill="#f7d3c1"/>
+    <path d="M240 232 q12 -10 24 0" stroke="#5a3a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M244 245 q6 4 12 0" stroke="#5a3a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <text x="272" y="220" font-family="Georgia, serif" font-size="20" fill="#ffffff" opacity="0.85">z</text>
+  <text x="288" y="200" font-family="Georgia, serif" font-size="26" fill="#ffffff" opacity="0.9">Z</text>
+  <text x="300" y="172" font-family="Georgia, serif" font-size="32" fill="#ffffff">Z</text>
+</svg>
