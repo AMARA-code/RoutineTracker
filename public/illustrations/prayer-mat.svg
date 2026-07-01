@@ -1,0 +1,44 @@
+<svg width="480" height="400" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="matGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8da37c"/>
+      <stop offset="100%" stop-color="#6d8f5e"/>
+    </linearGradient>
+    <linearGradient id="matInner" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5b041"/>
+      <stop offset="100%" stop-color="#e0a03a"/>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="240" cy="360" rx="190" ry="16" fill="#000000" opacity="0.06"/>
+
+  <rect x="55" y="55" width="370" height="290" rx="18" fill="url(#matGrad)"/>
+  <rect x="55" y="55" width="370" height="290" rx="18" fill="none" stroke="#5a7a4d" stroke-width="4"/>
+
+  <rect x="78" y="78" width="324" height="244" rx="10" fill="none" stroke="#f0e0c0" stroke-width="3" opacity="0.85"/>
+
+  <path d="M140 300 L140 160 C 140 110 175 78 240 78 C 305 78 340 110 340 160 L 340 300 Z"
+        fill="url(#matInner)" stroke="#f0e0c0" stroke-width="3"/>
+
+  <path d="M240 100 C 205 100 178 122 178 160 L 178 280 L 302 280 L 302 160 C 302 122 275 100 240 100 Z"
+        fill="none" stroke="#f0e0c0" stroke-width="2.5" opacity="0.9"/>
+
+  <circle cx="240" cy="150" r="14" fill="none" stroke="#f0e0c0" stroke-width="2.5" opacity="0.9"/>
+  <path d="M225 300 h30 M215 300 v10 M265 300 v10" stroke="#f0e0c0" stroke-width="2.5" opacity="0.9"/>
+
+  <g opacity="0.9" stroke="#f0e0c0" stroke-width="2">
+    <path d="M78 78 l14 14 M92 78 l-14 14" />
+    <path d="M402 78 l-14 14 M388 78 l14 14" />
+    <path d="M78 322 l14 -14 M92 322 l-14 -14" />
+    <path d="M402 322 l-14 -14 M388 322 l14 -14" />
+  </g>
+
+  <g stroke="#5a7a4d" stroke-width="3" stroke-linecap="round">
+    <path d="M90 345 q0 20 0 35" />
+    <path d="M120 345 q0 20 0 35" />
+    <path d="M150 345 q0 20 0 35" />
+    <path d="M330 345 q0 20 0 35" />
+    <path d="M360 345 q0 20 0 35" />
+    <path d="M390 345 q0 20 0 35" />
+  </g>
+</svg>

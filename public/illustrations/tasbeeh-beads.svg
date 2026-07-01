@@ -1,0 +1,51 @@
+<svg width="480" height="383" viewBox="0 0 480 383" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="beadGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0a8a8"/>
+      <stop offset="100%" stop-color="#d47070"/>
+    </linearGradient>
+    <linearGradient id="stringGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c9968f"/>
+      <stop offset="100%" stop-color="#a9766f"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M 277.6 61.6 A 110 110 0 1 1 202.4 61.6"
+        stroke="url(#stringGrad)" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <line x1="277.6" y1="61.6" x2="240" y2="303" stroke="url(#stringGrad)" stroke-width="4"/>
+  <line x1="202.4" y1="61.6" x2="240" y2="303" stroke="url(#stringGrad)" stroke-width="4"/>
+
+  <circle cx="277.6" cy="61.6" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="299.6" cy="72.5" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="318.6" cy="88.0" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="333.7" cy="107.4" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="344.1" cy="129.6" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="349.4" cy="153.5" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="349.2" cy="178.0" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="343.6" cy="201.9" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="332.9" cy="223.9" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="317.5" cy="243.1" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="298.3" cy="258.3" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="276.2" cy="268.9" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="252.3" cy="274.3" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="227.7" cy="274.3" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="203.8" cy="268.9" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="181.7" cy="258.3" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="162.5" cy="243.1" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="147.1" cy="223.9" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="136.4" cy="201.9" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="130.8" cy="178.0" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="130.6" cy="153.5" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="135.9" cy="129.6" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="146.3" cy="107.4" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="161.4" cy="88.0" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="180.4" cy="72.5" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+  <circle cx="202.4" cy="61.6" r="14" fill="url(#beadGrad)" stroke="#c25f5f" stroke-width="1.5"/>
+
+  <circle cx="240" cy="303" r="19" fill="#c9636b" stroke="#a94850" stroke-width="2"/>
+
+  <line x1="240" y1="322" x2="240" y2="323" stroke="url(#stringGrad)" stroke-width="4"/>
+  <path d="M 225 323 q15 22 0 45 M 235 323 q9 24 0 45 M 245 323 q-9 24 0 45 M 255 323 q-15 22 0 45"
+        stroke="#c9636b" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>

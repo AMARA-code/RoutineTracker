@@ -44,8 +44,8 @@ export const pageIllustrations: Record<
     alt: "Weekly habit trends illustration",
   },
   quran: {
-    src: "/illustrations/morning-news.svg",
-    alt: "Daily reading illustration",
+    src: "/illustrations/quran-book.svg",
+    alt: "Open Quran illustration",
   },
   personal: {
     src: "/illustrations/morning-plans.svg",
@@ -203,22 +203,22 @@ export const pageFeatureCards: Record<PageIllustrationKey, FeatureCardConfig[]> 
     ],
     quran: [
       {
-        src: "/illustrations/morning-news.svg",
-        alt: "Daily reading",
+        src: "/illustrations/quran-book.svg",
+        alt: "Open Quran",
         label: "Daily reading",
         caption: "Pages & completion",
         variant: "lavender",
       },
       {
-        src: "/illustrations/morning-plans.svg",
-        alt: "Reading plan",
+        src: "/illustrations/prayer-mat.svg",
+        alt: "Prayer mat",
         label: "Reading plan",
         caption: "Stay on schedule",
         variant: "peach",
       },
       {
-        src: "/illustrations/fitness-stats.svg",
-        alt: "Streak tracking",
+        src: "/illustrations/tasbeeh-beads.svg",
+        alt: "Prayer beads",
         label: "Streak tracking",
         caption: "Build consistency",
         variant: "sage",
