@@ -17,6 +17,18 @@ export function RegisterForm() {
 
       <form action={formAction} className="space-y-4">
         <Input
+          label="Username"
+          name="username"
+          type="text"
+          placeholder="e.g. trader_ahmed"
+          required
+          minLength={2}
+          maxLength={24}
+          autoComplete="username"
+          pattern="[a-zA-Z0-9_]{2,24}"
+          title="Letters, numbers, and underscores only (2–24 characters)"
+        />
+        <Input
           label="Email"
           name="email"
           type="email"

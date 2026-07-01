@@ -21,7 +21,11 @@ export async function sendAlertEmail(
       text: message,
       html: `<p style="font-family:sans-serif;color:#3e4c59">${message}</p>`,
     });
-    return !error;
+    if (error) {
+      console.error("[alerts] Resend rejected email:", error);
+      return false;
+    }
+    return true;
   } catch (err) {
     console.error("[alerts] Email send failed:", err);
     return false;

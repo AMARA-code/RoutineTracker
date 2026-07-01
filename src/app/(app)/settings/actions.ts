@@ -2,8 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
-import type { AlertLogEntry, AlertRule, RuleType, UserSettings } from "@/types/alerts";
-import { RULE_DEFINITIONS } from "@/types/alerts";
+import { provisionUserAlerts } from "@/lib/alerts/provision-user";
+import type { AlertLogEntry, AlertRule, UserSettings } from "@/types/alerts";
 
 type ActionResult = { error?: string; success?: string };
 
@@ -15,28 +15,13 @@ async function getUserId() {
   return user?.id ?? null;
 }
 
+/** @deprecated Use provisionUserAlerts — kept as alias for existing imports */
 export async function ensureDefaultRules(userId: string) {
   const supabase = await createClient();
-  const types = Object.keys(RULE_DEFINITIONS) as RuleType[];
-
-  for (const rule_type of types) {
-    const { data: existing } = await supabase
-      .from("alert_rules")
-      .select("id")
-      .eq("user_id", userId)
-      .eq("rule_type", rule_type)
-      .maybeSingle();
-
-    if (!existing) {
-      const def = RULE_DEFINITIONS[rule_type];
-      await supabase.from("alert_rules").insert({
-        user_id: userId,
-        rule_type,
-        threshold: def.defaultThreshold,
-        enabled: true,
-      });
-    }
-  }
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  await provisionUserAlerts(supabase, userId, user?.email);
 }
 
 export async function getSettingsData(): Promise<{

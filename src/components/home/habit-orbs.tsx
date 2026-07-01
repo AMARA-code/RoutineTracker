@@ -173,7 +173,7 @@ export function EnterDashboardCTA() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.6, type: "spring", stiffness: 120 }}
     >
-      <Link href="/" className="group relative">
+      <Link href="/" className="group relative block w-full max-w-md">
         <motion.div
           className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary via-lavender to-mint opacity-60 blur-lg"
           animate={{ opacity: [0.4, 0.7, 0.4] }}

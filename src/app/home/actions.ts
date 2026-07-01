@@ -3,6 +3,7 @@ import { getDayRoutine } from "@/app/(app)/routine/actions";
 import { getTradesForDate } from "@/app/(app)/journal/actions";
 import { getQuranDay } from "@/app/(app)/quran/actions";
 import { createClient } from "@/lib/supabase/server";
+import { getUserDisplayName } from "@/lib/user";
 import type { PrayerLog } from "@/types/routine";
 
 export type HomeData = {
@@ -32,10 +33,7 @@ export async function getHomeData(): Promise<HomeData> {
     getQuranDay(date),
   ]);
 
-  const displayName =
-    user?.user_metadata?.full_name ??
-    user?.email?.split("@")[0] ??
-    null;
+  const displayName = getUserDisplayName(user);
 
   return {
     date,

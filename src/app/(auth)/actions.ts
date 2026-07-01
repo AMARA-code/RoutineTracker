@@ -2,8 +2,9 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { ensureDefaultRules } from "@/app/(app)/settings/actions";
+import { provisionUserAlerts } from "@/lib/alerts/provision-user";
 import { createClient } from "@/lib/supabase/server";
+import { validateUsername } from "@/lib/user";
 
 type AuthState = {
   error?: string;
@@ -29,7 +30,8 @@ export async function login(
     data: { user },
   } = await supabase.auth.getUser();
   if (user) {
-    await ensureDefaultRules(user.id);
+    const supabase = await createClient();
+    await provisionUserAlerts(supabase, user.id, user.email);
   }
 
   revalidatePath("/", "layout");
@@ -45,6 +47,12 @@ export async function signup(
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
   const confirmPassword = formData.get("confirmPassword") as string;
+  const username = (formData.get("username") as string)?.trim();
+
+  const usernameError = validateUsername(username ?? "");
+  if (usernameError) {
+    return { error: usernameError };
+  }
 
   if (password.length < 8) {
     return { error: "Password must be at least 8 characters." };
@@ -54,14 +62,23 @@ export async function signup(
     return { error: "Passwords do not match." };
   }
 
-  const { data, error } = await supabase.auth.signUp({ email, password });
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        username,
+      },
+    },
+  });
 
   if (error) {
     return { error: error.message };
   }
 
   if (data.session && data.user) {
-    await ensureDefaultRules(data.user.id);
+    const supabase = await createClient();
+    await provisionUserAlerts(supabase, data.user.id, data.user.email);
     revalidatePath("/", "layout");
     redirect("/home");
   }
