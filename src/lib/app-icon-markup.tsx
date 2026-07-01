@@ -12,7 +12,7 @@ export function AppIconMarkup({ size, maskable = false }: AppIconMarkupProps) {
 
   // Keep the letter inside the ~80% safe zone when maskable so it never
   // gets clipped by Android's circle/squircle mask.
-  const letterSize = Math.round(size * (maskable ? 0.42 : 0.52));
+  const letterSize = Math.round(size * (maskable ? 0.5 : 0.6));
 
   const container: CSSProperties = {
     width: "100%",
@@ -26,11 +26,12 @@ export function AppIconMarkup({ size, maskable = false }: AppIconMarkupProps) {
 
   const letter: CSSProperties = {
     fontSize: letterSize,
-    fontWeight: 700,
+    fontWeight: 900,
     color: "#ffffff",
-    fontFamily: "Georgia, serif",
+    fontFamily: "Arial, Helvetica, sans-serif",
     lineHeight: 1,
-    transform: "translateY(2%)",
+    letterSpacing: "-0.02em",
+    transform: "translateY(3%)",
   };
 
   return (
