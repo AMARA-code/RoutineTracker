@@ -1,6 +1,7 @@
 export { Button } from "./button";
 export { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./card";
 export { Loader, LoaderRing, PageLoader, FullPageLoader } from "./loader";
+export { HabitStatCard, pickHabitVariant, type HabitCardVariant } from "./habit-stat-card";
 export { Input } from "./input";
 export { Textarea } from "./textarea";
 export { Checkbox } from "./checkbox";

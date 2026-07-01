@@ -1,5 +1,5 @@
 import { Moon, Briefcase, Dumbbell } from "lucide-react";
-import { Card, CardContent } from "@/components/ui";
+import { HabitStatCard } from "@/components/ui";
 import { formatHours } from "@/lib/routine";
 
 export function RoutineSnapshot({
@@ -19,18 +19,21 @@ export function RoutineSnapshot({
       value: formatHours(sleepHours),
       icon: Moon,
       hint: sleepHours != null && sleepHours < 6 ? "Below 6h" : undefined,
+      variant: "lavender" as const,
     },
     {
       label: "Work",
       value: formatHours(workHours),
       icon: Briefcase,
       hint: workHours != null && workHours < 9 ? "Below 9h target" : undefined,
+      variant: "peach" as const,
     },
     {
       label: "Exercise",
-      value: exercised ? `✓ Today` : "Not yet",
+      value: exercised ? "Done" : "Not yet",
       icon: Dumbbell,
       hint: `${exerciseStreak} day streak`,
+      variant: "sage" as const,
     },
   ];
 
@@ -39,20 +42,14 @@ export function RoutineSnapshot({
       {items.map((item) => {
         const Icon = item.icon;
         return (
-          <Card key={item.label} variant="routine">
-            <CardContent className="flex items-start justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">{item.label}</p>
-                <p className="mt-1 text-xl font-semibold">{item.value}</p>
-                {item.hint && (
-                  <p className="mt-0.5 text-xs text-muted-foreground">{item.hint}</p>
-                )}
-              </div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-mint/50">
-                <Icon className="h-5 w-5 text-[#3d5a4a]" />
-              </div>
-            </CardContent>
-          </Card>
+          <HabitStatCard
+            key={item.label}
+            label={item.label}
+            value={item.value}
+            sub={item.hint}
+            icon={Icon}
+            variant={item.variant}
+          />
         );
       })}
     </div>

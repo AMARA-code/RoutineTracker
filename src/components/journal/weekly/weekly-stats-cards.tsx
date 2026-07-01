@@ -4,7 +4,7 @@ import {
   Target,
   TrendingUp,
 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui";
+import { HabitStatCard, pickHabitVariant } from "@/components/ui";
 import type { WeeklyStats } from "@/lib/weekly-journal";
 
 export function WeeklyStatsCards({ stats }: { stats: WeeklyStats }) {
@@ -41,31 +41,24 @@ export function WeeklyStatsCards({ stats }: { stats: WeeklyStats }) {
 
   return (
     <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-      {items.map((item) => {
+      {items.map((item, index) => {
         const Icon = item.icon;
         return (
-          <Card key={item.label}>
-            <CardContent className="flex items-start justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">{item.label}</p>
-                <p
-                  className={`mt-1 text-2xl font-semibold ${
-                    item.positive === true
-                      ? "text-[#3d5a3e]"
-                      : item.positive === false
-                        ? "text-[#5a3a3a]"
-                        : ""
-                  }`}
-                >
-                  {item.value}
-                </p>
-                <p className="mt-0.5 text-xs text-muted-foreground">{item.sub}</p>
-              </div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/30">
-                <Icon className="h-5 w-5 text-primary-foreground" />
-              </div>
-            </CardContent>
-          </Card>
+          <HabitStatCard
+            key={item.label}
+            label={item.label}
+            value={item.value}
+            sub={item.sub}
+            icon={Icon}
+            variant={pickHabitVariant(index)}
+            valueClassName={
+              item.positive === true
+                ? "text-white"
+                : item.positive === false
+                  ? "text-white/90"
+                  : undefined
+            }
+          />
         );
       })}
     </div>

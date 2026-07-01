@@ -7,7 +7,8 @@ import { DailyAnalysisForm } from "./daily-analysis-form";
 import { TradeForm } from "./trade-form";
 import { TradeCard } from "./trade-card";
 import { TradeHistory } from "./trade-history";
-import { PageHeader } from "@/components/layout/page-header";
+import { PageHero } from "@/components/layout/page-hero";
+import { PageIllustrationCards } from "@/components/layout/page-illustration-cards";
 import { Button, Card, CardContent } from "@/components/ui";
 import type { Trade } from "@/types/journal";
 
@@ -30,15 +31,18 @@ export function JournalPageClient({
 
   return (
     <div>
-      <PageHeader
+      <PageHero
         title="Daily Journal"
         description="Log trades, chart screenshots, and daily market analysis."
+        illustration="journal"
       >
         <Button onClick={() => setShowForm(true)}>
           <Plus className="h-4 w-4" />
           Log trade
         </Button>
-      </PageHeader>
+      </PageHero>
+
+      <PageIllustrationCards page="journal" className="mb-8" />
 
       <div className="mb-6">
         <DateSelector date={date} />

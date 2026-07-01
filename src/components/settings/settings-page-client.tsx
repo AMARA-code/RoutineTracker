@@ -4,7 +4,8 @@ import { useTransition } from "react";
 import { useActionState } from "react";
 import { saveAlertEmail, updateAlertRule } from "@/app/(app)/settings/actions";
 import { MotionSection } from "@/components/ui/motion-section";
-import { PageHeader } from "@/components/layout/page-header";
+import { PageHero } from "@/components/layout/page-hero";
+import { PageIllustrationCards } from "@/components/layout/page-illustration-cards";
 import {
   Badge,
   Button,
@@ -82,10 +83,13 @@ export function SettingsPageClient({
 
   return (
     <div>
-      <PageHeader
+      <PageHero
         title="Alerts & Settings"
         description="Configure accountability rules and email notifications."
+        illustration="settings"
       />
+
+      <PageIllustrationCards page="settings" className="mb-8" />
 
       <MotionSection className="mb-8">
         <Card variant="alerts">

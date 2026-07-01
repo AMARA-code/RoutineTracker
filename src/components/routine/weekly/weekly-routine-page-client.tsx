@@ -1,6 +1,7 @@
 "use client";
 
-import { PageHeader } from "@/components/layout/page-header";
+import { PageHero } from "@/components/layout/page-hero";
+import { PageIllustrationCards } from "@/components/layout/page-illustration-cards";
 import { ExerciseHeatmap } from "./exercise-heatmap";
 import { PrayerConsistencyChart } from "./prayer-consistency-chart";
 import { RoutineWeekSelector } from "./routine-week-selector";
@@ -17,10 +18,13 @@ export function WeeklyRoutinePageClient({
 }) {
   return (
     <div>
-      <PageHeader
+      <PageHero
         title="Weekly Routine Analysis"
         description="Work hours, sleep patterns, exercise heatmap, and wellness consistency."
+        illustration="routineWeekly"
       />
+
+      <PageIllustrationCards page="routineWeekly" className="mb-8" />
 
       <div className="mb-8">
         <RoutineWeekSelector weekStart={stats.weekStart} />

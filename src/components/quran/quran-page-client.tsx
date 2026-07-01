@@ -1,6 +1,7 @@
 "use client";
 
-import { PageHeader } from "@/components/layout/page-header";
+import { PageHero } from "@/components/layout/page-hero";
+import { PageIllustrationCards } from "@/components/layout/page-illustration-cards";
 import { QuranDateSelector } from "./quran-date-selector";
 import { QuranHistory } from "./quran-history";
 import { TodayQuranForm } from "./today-quran-form";
@@ -21,10 +22,13 @@ export function QuranPageClient({
 }: QuranPageClientProps) {
   return (
     <div>
-      <PageHeader
+      <PageHero
         title="Quran Tracker"
         description="Log daily reading, track your streak, and review your history."
+        illustration="quran"
       />
+
+      <PageIllustrationCards page="quran" className="mb-8" />
 
       <div className="mb-6">
         <QuranDateSelector date={date} />

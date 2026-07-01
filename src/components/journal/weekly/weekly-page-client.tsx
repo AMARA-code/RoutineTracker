@@ -1,6 +1,7 @@
 "use client";
 
-import { PageHeader } from "@/components/layout/page-header";
+import { PageHero } from "@/components/layout/page-hero";
+import { PageIllustrationCards } from "@/components/layout/page-illustration-cards";
 import { BestWorstTrades } from "./best-worst-trades";
 import { DailyRChart } from "./daily-r-chart";
 import { EquityCurveChart } from "./equity-curve-chart";
@@ -14,10 +15,13 @@ export function WeeklyPageClient({ data }: { data: WeeklyAnalysisData }) {
 
   return (
     <div>
-      <PageHeader
+      <PageHero
         title="Weekly Journal Analysis"
         description="Win rate, total R, equity curve, and week-over-week performance."
+        illustration="journalWeekly"
       />
+
+      <PageIllustrationCards page="journalWeekly" className="mb-8" />
 
       <div className="mb-8">
         <WeekSelector weekStart={stats.weekStart} />

@@ -18,7 +18,7 @@ export function HomePageClient({ data }: { data: HomeData }) {
         <HomeHero userName={data.userName} />
 
         <motion.div
-          className="mx-auto mt-10 max-w-5xl space-y-8"
+          className="mx-auto mt-16 max-w-5xl space-y-8 sm:mt-20 lg:mt-24"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}

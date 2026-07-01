@@ -1,6 +1,7 @@
 "use client";
 
-import { PageHeader } from "@/components/layout/page-header";
+import { PageHero } from "@/components/layout/page-hero";
+import { PageIllustrationCards } from "@/components/layout/page-illustration-cards";
 import { ExerciseSection } from "./exercise-section";
 import { RoutineDateSelector } from "./routine-date-selector";
 import { RoutineHistory } from "./routine-history";
@@ -23,10 +24,13 @@ export function RoutinePageClient({
 }: RoutinePageClientProps) {
   return (
     <div>
-      <PageHeader
+      <PageHero
         title="Routine & Discipline Tracker"
         description="Log work, sleep, exercise, and daily wellness habits."
+        illustration="routine"
       />
+
+      <PageIllustrationCards page="routine" className="mb-8" />
 
       <div className="mb-6">
         <RoutineDateSelector date={date} />

@@ -18,10 +18,12 @@ import {
   Dumbbell,
   Moon,
   ScrollText,
+  type LucideIcon,
 } from "lucide-react";
 import { MotionSection } from "@/components/ui/motion-section";
+import { PageHero } from "@/components/layout/page-hero";
+import { PageIllustrationCards } from "@/components/layout/page-illustration-cards";
 import { AlertsBanner, DashboardQuickLog, DashboardWorkBody } from "./dashboard-widgets";
-import { PageHeader } from "@/components/layout/page-header";
 import {
   Badge,
   Button,
@@ -30,6 +32,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
+  HabitStatCard,
+  pickHabitVariant,
 } from "@/components/ui";
 import type { DashboardData } from "@/app/(app)/dashboard/actions";
 
@@ -38,27 +42,22 @@ function SnapshotCard({
   value,
   sub,
   icon: Icon,
+  index,
 }: {
   label: string;
   value: string;
   sub?: string;
-  icon: React.ElementType;
+  icon: LucideIcon;
+  index: number;
 }) {
   return (
-    <Card>
-      <CardContent className="flex items-start justify-between">
-        <div>
-          <p className="text-sm text-muted-foreground">{label}</p>
-          <p className="mt-1 text-2xl font-semibold">{value}</p>
-          {sub && (
-            <p className="mt-0.5 text-xs text-muted-foreground">{sub}</p>
-          )}
-        </div>
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/30">
-          <Icon className="h-5 w-5 text-primary-foreground" />
-        </div>
-      </CardContent>
-    </Card>
+    <HabitStatCard
+      label={label}
+      value={value}
+      sub={sub}
+      icon={Icon}
+      variant={pickHabitVariant(index)}
+    />
   );
 }
 
@@ -73,14 +72,17 @@ export function DashboardPageClient({ data }: { data: DashboardData }) {
 
   return (
     <div>
-      <PageHeader
+      <PageHero
         title="Dashboard"
         description="Your command center — today's habits, streaks, and weekly progress."
+        illustration="dashboard"
       >
         <Link href="/routine">
           <Button size="sm">Log routine</Button>
         </Link>
-      </PageHeader>
+      </PageHero>
+
+      <PageIllustrationCards page="dashboard" className="mb-8" />
 
       <MotionSection className="mb-6">
         <AlertsBanner alerts={data.recentAlerts} />
@@ -105,22 +107,26 @@ export function DashboardPageClient({ data }: { data: DashboardData }) {
           value={String(data.tradeCount)}
           sub={`${data.journalWeekR >= 0 ? "+" : ""}${data.journalWeekR}R this week`}
           icon={BookOpen}
+          index={0}
         />
         <SnapshotCard
           label="Worked today"
           value={workStr}
           icon={Activity}
+          index={1}
         />
         <SnapshotCard
           label="Sleep"
           value={sleepStr}
           icon={Moon}
+          index={2}
         />
         <SnapshotCard
           label="Streaks"
           value={`${data.exerciseStreak}d`}
           sub={`Exercise · Quran ${data.quranStreak}d`}
           icon={Dumbbell}
+          index={3}
         />
       </MotionSection>
 
@@ -185,7 +191,7 @@ export function DashboardPageClient({ data }: { data: DashboardData }) {
                   <Line
                     type="monotone"
                     dataKey="cumulativeR"
-                    stroke="#7ec8e3"
+                    stroke="#e08a8a"
                     strokeWidth={2}
                     dot={false}
                   />
@@ -215,7 +221,7 @@ export function DashboardPageClient({ data }: { data: DashboardData }) {
                   <XAxis dataKey="label" tick={{ fontSize: 10 }} />
                   <YAxis tick={{ fontSize: 10 }} width={30} />
                   <Tooltip formatter={(v) => [`${v ?? 0}h`, "Work"]} />
-                  <Bar dataKey="hours" fill="#c8ead9" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="hours" fill="#8da37c" radius={[8, 8, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             )}

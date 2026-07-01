@@ -1,6 +1,7 @@
 "use client";
 
-import { PageHeader } from "@/components/layout/page-header";
+import { PageHero } from "@/components/layout/page-hero";
+import { PageIllustrationCards } from "@/components/layout/page-illustration-cards";
 import { MotionSection } from "@/components/ui/motion-section";
 import { PersonalDateSelector } from "./personal-date-selector";
 import { PersonalHistory } from "./personal-history";
@@ -25,10 +26,13 @@ export function PersonalPageClient({
 }) {
   return (
     <div>
-      <PageHeader
+      <PageHero
         title="Personal Tracker"
         description="Daily mood, reflections, and personal goals."
+        illustration="personal"
       />
+
+      <PageIllustrationCards page="personal" className="mb-8" />
 
       <MotionSection className="mb-6">
         <PersonalDateSelector date={date} />

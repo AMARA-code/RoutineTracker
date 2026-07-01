@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BookOpen } from "lucide-react";
+import { FloatingIllustration } from "@/components/layout/floating-illustration";
 
 type AuthBrandProps = {
   title: string;
@@ -26,9 +27,15 @@ export function AuthBrand({ title, subtitle }: AuthBrandProps) {
   );
 }
 
-const authIllustrations: Record<string, string> = {
-  login: "/illustrations/morning-plans.svg",
-  register: "/illustrations/morning-news.svg",
+const authIllustrations: Record<string, { src: string; alt: string }> = {
+  login: {
+    src: "/illustrations/morning-plans.svg",
+    alt: "Daily planning illustration",
+  },
+  register: {
+    src: "/illustrations/morning-news.svg",
+    alt: "Morning routine illustration",
+  },
 };
 
 export function AuthPageShell({
@@ -48,29 +55,50 @@ export function AuthPageShell({
         <div className="auth-blob left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 bg-peach/25" />
       </div>
 
-      <div className="grid w-full max-w-5xl items-center gap-8 lg:grid-cols-2 lg:gap-12">
-        <div className="hidden lg:flex lg:flex-col lg:items-center lg:justify-center">
-          <p className="mb-4 font-serif text-3xl font-bold leading-tight text-foreground">
-            Keep a daily journal
-            <br />
-            <span className="text-primary">of your best life</span>
-          </p>
-          <p className="mb-8 max-w-sm text-center text-sm text-muted-foreground">
-            Track habits, routines, and goals with a calm, beautiful space
-            designed for consistency.
-          </p>
-          <Image
-            src={illustration}
-            alt=""
-            width={400}
-            height={320}
-            className="max-h-72 w-auto object-contain"
+      <div className="w-full max-w-5xl">
+        {/* ── Mobile: headline + large SVG above form ── */}
+        <div className="lg:hidden">
+          <div className="mb-6 text-center">
+            <p className="font-serif text-xl font-bold leading-tight text-foreground">
+              Keep a daily journal
+              <span className="block text-primary">of your best life</span>
+            </p>
+          </div>
+
+          <FloatingIllustration
+            src={illustration.src}
+            alt={illustration.alt}
             priority
+            className="mb-6"
+            imageClassName="h-52 max-w-[90vw]"
           />
         </div>
 
-        <div className="journal-card mx-auto w-full max-w-md p-6 sm:p-8">
-          {children}
+        {/* ── Desktop: illustration + form in one row (original layout) ── */}
+        <div className="grid w-full items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <div className="hidden flex-col items-center justify-center lg:flex">
+            <p className="mb-4 text-center font-serif text-3xl font-bold leading-tight text-foreground">
+              Keep a daily journal
+              <br />
+              <span className="text-primary">of your best life</span>
+            </p>
+            <p className="mb-8 max-w-sm text-center text-sm text-muted-foreground">
+              Track habits, routines, and goals with a calm, beautiful space
+              designed for consistency.
+            </p>
+            <Image
+              src={illustration.src}
+              alt={illustration.alt}
+              width={400}
+              height={320}
+              className="max-h-72 w-auto object-contain"
+              priority
+            />
+          </div>
+
+          <div className="journal-card mx-auto w-full max-w-md p-6 sm:p-8 lg:mx-0">
+            {children}
+          </div>
         </div>
       </div>
     </div>
