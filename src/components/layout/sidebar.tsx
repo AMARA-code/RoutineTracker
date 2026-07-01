@@ -94,17 +94,6 @@ export function Sidebar() {
             );
           })}
         </nav>
-
-        <div className="border-t border-border p-4">
-          <div className="rounded-xl gradient-hero p-4 text-center">
-            <p className="text-xs font-medium text-primary-foreground/80">
-              Build consistency.
-            </p>
-            <p className="text-sm font-semibold text-primary-foreground">
-              One day at a time.
-            </p>
-          </div>
-        </div>
       </aside>
     </>
   );
