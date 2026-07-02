@@ -1,0 +1,42 @@
+<svg width="480" height="400" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="upGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a3bd8f"/>
+      <stop offset="100%" stop-color="#8da37c"/>
+    </linearGradient>
+    <linearGradient id="downGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8a3a3"/>
+      <stop offset="100%" stop-color="#d47070"/>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="240" cy="345" rx="185" ry="14" fill="#000000" opacity="0.05"/>
+
+  <line x1="60" y1="320" x2="60" y2="70" stroke="#d9c9b8" stroke-width="2"/>
+  <line x1="60" y1="320" x2="430" y2="320" stroke="#d9c9b8" stroke-width="2"/>
+
+  <g stroke-linecap="round">
+    <line x1="100" y1="230" x2="100" y2="280" stroke="#c25f5f" stroke-width="3"/>
+    <rect x="88" y="240" width="24" height="30" rx="3" fill="url(#downGrad)"/>
+
+    <line x1="150" y1="200" x2="150" y2="260" stroke="#c25f5f" stroke-width="3"/>
+    <rect x="138" y="215" width="24" height="30" rx="3" fill="url(#downGrad)"/>
+
+    <line x1="200" y1="150" x2="200" y2="230" stroke="#6d8f5e" stroke-width="3"/>
+    <rect x="188" y="180" width="24" height="40" rx="3" fill="url(#upGrad)"/>
+
+    <line x1="250" y1="120" x2="250" y2="190" stroke="#6d8f5e" stroke-width="3"/>
+    <rect x="238" y="140" width="24" height="35" rx="3" fill="url(#upGrad)"/>
+
+    <line x1="300" y1="140" x2="300" y2="210" stroke="#c25f5f" stroke-width="3"/>
+    <rect x="288" y="150" width="24" height="35" rx="3" fill="url(#downGrad)"/>
+
+    <line x1="350" y1="90" x2="350" y2="170" stroke="#6d8f5e" stroke-width="3"/>
+    <rect x="338" y="100" width="24" height="45" rx="3" fill="url(#upGrad)"/>
+  </g>
+
+  <path d="M95 245 L145 235 L195 195 L245 150 L295 165 L345 105"
+        stroke="#f5b041" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+
+  <path d="M330 115 l20 -18 l4 26 Z" fill="#f5b041"/>
+</svg>

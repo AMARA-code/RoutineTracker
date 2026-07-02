@@ -28,8 +28,8 @@ export const pageIllustrations: Record<
     alt: "Progress and growth illustration",
   },
   journal: {
-    src: "/illustrations/morning-plans.svg",
-    alt: "Daily journal planning illustration",
+    src: "/illustrations/candlestick-chart.svg",
+    alt: "Candlestick trading chart illustration",
   },
   journalWeekly: {
     src: "/illustrations/investing.svg",
@@ -52,8 +52,8 @@ export const pageIllustrations: Record<
     alt: "Personal reflection illustration",
   },
   settings: {
-    src: "/illustrations/cloudflare-dev.svg",
-    alt: "Settings and notifications illustration",
+    src: "/illustrations/alert-bell.svg",
+    alt: "Notification bell illustration",
   },
   home: {
     src: "/illustrations/fitness-stats.svg",
@@ -111,22 +111,22 @@ export const pageFeatureCards: Record<PageIllustrationKey, FeatureCardConfig[]> 
     ],
     journal: [
       {
-        src: "/illustrations/morning-plans.svg",
-        alt: "Trade planning",
+        src: "/illustrations/candlestick-chart.svg",
+        alt: "Trade planning chart",
         label: "Plan trades",
         caption: "Strategy before execution",
         variant: "peach",
       },
       {
-        src: "/illustrations/investing.svg",
+        src: "/illustrations/market-analysis.svg",
         alt: "Market analysis",
         label: "Analyze markets",
         caption: "Daily notes & screenshots",
         variant: "lavender",
       },
       {
-        src: "/illustrations/morning-news.svg",
-        alt: "Daily review",
+        src: "/illustrations/trade-notebook.svg",
+        alt: "Trade journal notebook",
         label: "Daily review",
         caption: "Reflect on every session",
         variant: "sky",
@@ -249,22 +249,22 @@ export const pageFeatureCards: Record<PageIllustrationKey, FeatureCardConfig[]> 
     ],
     settings: [
       {
-        src: "/illustrations/cloudflare-dev.svg",
-        alt: "Notifications",
+        src: "/illustrations/alert-bell.svg",
+        alt: "Notification bell",
         label: "Smart alerts",
         caption: "Email accountability",
         variant: "lavender",
       },
       {
-        src: "/illustrations/morning-plans.svg",
-        alt: "Custom rules",
+        src: "/illustrations/settings-sliders.svg",
+        alt: "Settings sliders",
         label: "Custom rules",
         caption: "Set your thresholds",
         variant: "peach",
       },
       {
-        src: "/illustrations/investing.svg",
-        alt: "Stay on track",
+        src: "/illustrations/habit-shield.svg",
+        alt: "Shield with checkmark",
         label: "Stay on track",
         caption: "Never miss a habit",
         variant: "coral",
