@@ -1,0 +1,39 @@
+<svg width="480" height="400" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="panelGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f7ede4"/>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="240" cy="345" rx="175" ry="14" fill="#000000" opacity="0.05"/>
+
+  <rect x="90" y="80" width="300" height="240" rx="18" fill="url(#panelGrad)" stroke="#e0c9b8" stroke-width="3"/>
+
+  <g>
+    <line x1="130" y1="140" x2="350" y2="140" stroke="#e5dccc" stroke-width="6" stroke-linecap="round"/>
+    <line x1="130" y1="140" x2="255" y2="140" stroke="#f5b041" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="255" cy="140" r="16" fill="#ffffff" stroke="#f5b041" stroke-width="5"/>
+  </g>
+
+  <g>
+    <line x1="130" y1="195" x2="350" y2="195" stroke="#e5dccc" stroke-width="6" stroke-linecap="round"/>
+    <line x1="130" y1="195" x2="185" y2="195" stroke="#8da37c" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="185" cy="195" r="16" fill="#ffffff" stroke="#8da37c" stroke-width="5"/>
+  </g>
+
+  <g>
+    <line x1="130" y1="250" x2="350" y2="250" stroke="#e5dccc" stroke-width="6" stroke-linecap="round"/>
+    <line x1="130" y1="250" x2="300" y2="250" stroke="#e08a8a" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="300" cy="250" r="16" fill="#ffffff" stroke="#e08a8a" stroke-width="5"/>
+  </g>
+
+  <g transform="translate(120, 290)">
+    <rect x="0" y="0" width="46" height="26" rx="13" fill="#8da37c"/>
+    <circle cx="33" cy="13" r="10" fill="#ffffff"/>
+  </g>
+  <text x="180" y="308" font-family="Arial, sans-serif" font-size="14" fill="#8a7a68">Auto-notify</text>
+
+  <path d="M405 110 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 z" fill="#aed6f1" opacity="0.8"/>
+  <path d="M75 300 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 z" fill="#c4b7d4" opacity="0.7"/>
+</svg>
